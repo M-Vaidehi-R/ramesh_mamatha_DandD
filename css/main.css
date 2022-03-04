@@ -13,37 +13,37 @@ body {
 
 #game-boards {
 	width: 100%;
-	text-align: center;
+	text-align:center;   /*makes the board central alligned*/
 }
 
 .puzzle-pieces, .puzzle-board {
 	margin-top: 40px;
 	height: 400px;
 	display: inline-block;
-	border: medium solid #333;
+	border: solid yellow;
 	background-color: #000;
 	color: inherit;
 	overflow: hidden;
-}
+} /*this properties are for the 2 boxes of pieces and the puzzle board :) */
 
 .puzzle-pieces {
 	width: 300px;
 	margin-right: 20px;
 
-}
+}  /*puzzle box*/
 
-.puzzle-board { 
-	width:600px; 
+.puzzle-board {
+	width:600px;
 	background-image: url('../images/backGround0.jpg');
 	background-repeat: no-repeat;
-}
+}  /*puzzle board*/
 
 .puzzle-image {
-	width: 40%;
-	display: block;
+	width: 50%;
+	display:block;
 	padding: 8px;
-	cursor: pointer;
-}
+	cursor:grabbing;  /*how the cursor looks on hovering*/
+} /*these are the images inside the box*/
 
 .puzzle-image:nth-child(even) {
 	float: right;
@@ -52,17 +52,38 @@ body {
 .puzzle-image:nth-child(odd) {
 	float: left;
 	clear: both;
-}
+}  /*nth child property- specifies a certain element whose position is odd or even  (it can be any numbers,  from anything like p, section ig :] )*/
 
 .drop-zone {
-	width: 49.5%;
-  height: 49.5%;
-  border: thin dashed white;
+	width: 50%;
+  height: 50%;
+  /*border: thin dashed white;*/
   float: left;
 	position: relative;
 }
 
+/* reset the drop zone images, can make it any size*/
+.drop-zone img {
+	width:100% !important;
+	float: none;
+	/*position:relative;*/
+}
 
+/*place each puzzle piece in the middle */
+.tl img {
+	right:0;
+	bottom:0;
+}
+.tr img{
+	bottom:0;
+}
+
+.bl img{
+	right:0;
+}
+.br img{
+	bottom:0;
+}
 header {
 	position: relative;
 	top: 20px;
@@ -89,7 +110,7 @@ footer {
 
 #buttonHolder {
 	margin: 0px auto;
-	text-align:center;
+	text-align:left;
 }
 
 #buttonHolder img {
@@ -97,7 +118,7 @@ footer {
 	margin-right: 5px;
 	border-radius: 20px;
 	border: thin solid #333;
-	cursor: pointer;
+	cursor:grabbing;
 }
 
 #buttonHolder img:hover {
