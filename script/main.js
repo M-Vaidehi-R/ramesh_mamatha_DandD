@@ -18,19 +18,20 @@
 
 		const puzzlePaths=["topLeft", "topRight", "bottomLeft", "bottomRight"]   //this is an array :)
 
-			//add a line where u remove all the child elements of the puzzle board.....use remove-child prop
 
 function changeImgSet() {
 
-
+    moveChild();
 //the 'this' keyword refers to the element that triggers  this function (the nav button we click with the custom data attribute of bgref)
 	//debugger;
-
 	gameBoard.style.backgroundImage = `url(images/backGround${this.dataset.bgref}.jpg)`;  //game boarde lle style lle backgroundImage        $ specifies that end-numbers in image name, 
 	//loop through all of the small draggable images and change their src attribute with js
 	puzzlePaths.forEach((img, index) => {
 		puzzlePieces[index].src =`images/${img + this.dataset.bgref}.jpg`;
 	}); //update each image's src one at a time)
+   
+	   console.log("move children");
+   
 }
 
 function dragStarted(event) {
@@ -64,6 +65,18 @@ this.appendChild(document.querySelector(`#${droppedEl}`));
 	}
 }
 
+function moveChild() {
+	dropZones.forEach(zone => {
+		if(zone.childElementCount > 0){
+            childElemt = zone.firstElementChild;
+			document.getElementsByClassName("puzzle-image").appendChild(childElemt);
+		}
+    else {
+		return;
+	}
+	})
+}
+
 
 // end of declaring all functions.....now its calling time :]
 
@@ -79,4 +92,6 @@ this.appendChild(document.querySelector(`#${droppedEl}`));
 	 zone.addEventListener("dragover", allowDragover);
 	 zone.addEventListener("drop", allowDrop);
  })
+
+
 })();
