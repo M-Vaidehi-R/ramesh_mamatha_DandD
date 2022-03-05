@@ -3,6 +3,7 @@
 	let theThumbnails = document.querySelectorAll("#buttonHolder img"),     
        gameBoard=document.querySelector(".puzzle-board"),
 		puzzlePieces=document.querySelectorAll(".puzzle-pieces img"),
+		puzzle= document.querySelectorAll(".puzzle-pieces"),
 		dropZones=document.querySelectorAll(".drop-zone");
 
 
@@ -20,17 +21,16 @@
 
 
 function changeImgSet() {
+	
 
     moveChild();
 //the 'this' keyword refers to the element that triggers  this function (the nav button we click with the custom data attribute of bgref)
 	//debugger;
-	gameBoard.style.backgroundImage = `url(images/backGround${this.dataset.bgref}.jpg)`;  //game boarde lle style lle backgroundImage        $ specifies that end-numbers in image name, 
+	gameBoard.style.backgroundImage = `url(images/backGround${this.dataset.bgref}.jpg)`;  //game boarde -> style -> backgroundImage        $ specifies that end-numbers in image name, 
 	//loop through all of the small draggable images and change their src attribute with js
 	puzzlePaths.forEach((img, index) => {
 		puzzlePieces[index].src =`images/${img + this.dataset.bgref}.jpg`;
 	}); //update each image's src one at a time)
-   
-	   console.log("move children");
    
 }
 
@@ -67,9 +67,15 @@ this.appendChild(document.querySelector(`#${droppedEl}`));
 
 function moveChild() {
 	dropZones.forEach(zone => {
-		if(zone.childElementCount > 0){
-            childElemt = zone.firstElementChild;
-			document.getElementsByClassName("puzzle-image").appendChild(childElemt);
+		if(zone.childElementCount > 0)
+		{
+            //childElemt = zone.firstElementChild.innerHTML;
+			//document.getElementByClass("puzzle-image").appendChild(zone.firstElementChild.innerHTML);
+			//document.getElementsByClass("puzzle-image")=zone.firstElementChild.innerHTML;
+			theThumbnails.addEventListener('click', dropZones.forEach(zone => {
+				puzzle.appendChild(zone.children);
+				zone.removeChild(zone.children);
+			}));
 		}
     else {
 		return;
@@ -82,7 +88,7 @@ function moveChild() {
 
 
 	//add event handling here -> loop through theThumbnails array and add event handling to each image
- theThumbnails.forEach( item => item.addEventListener("click", changeImgSet));      //thumbnails lle oro item, when clicked, call changeImgSet function, its for 
+ theThumbnails.forEach( item => item.addEventListener("click", changeImgSet));      //thumbnails lle oro item, when clicked, call changeImgSet function.
  // listen for the dragstarted event on the puzzle puzzlePieces
  puzzlePieces.forEach(piece => piece.addEventListener("dragstart", dragStarted));    //dragstart is a prop               puzzlePieces(inside that verticle box- 4 imgs), when its dragged from there, dragStarted function is called.
 
