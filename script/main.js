@@ -75,6 +75,7 @@ function moveChild() {
 			theThumbnails.addEventListener('click', dropZones.forEach(zone => {
 				puzzle.appendChild(zone.children);
 				zone.removeChild(zone.children);
+				
 			}));
 		}
     else {
