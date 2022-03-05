@@ -27,7 +27,7 @@ body {
 } /*this properties are for the 2 boxes of pieces and the puzzle board :) */
 
 .puzzle-pieces {
-	width: 300px;
+	width: 250px;
 	margin-right: 20px;
 
 }  /*puzzle box*/
